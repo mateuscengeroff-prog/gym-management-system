@@ -1,30 +1,60 @@
-# Sistema de Gerenciamento de Academia
+🏋️ Gym Management System
 
-Sistema desenvolvido em Python utilizando SQLite para gerenciamento de alunos.
+Sistema de gerenciamento de academia desenvolvido em Python utilizando SQLite como banco de dados.
 
-## Funcionalidades
+O projeto foi desenvolvido com o objetivo de praticar conceitos de programação, banco de dados e desenvolvimento de aplicações em Python, implementando um sistema completo de gerenciamento de alunos por meio de uma interface em linha de comando (CLI).
 
-- Cadastro de alunos
-- Listagem de alunos
-- Busca por nome
-- Exclusão de alunos
-- Alteração de plano
-- Contagem de alunos
-- Estatísticas por sexo
-- Estatísticas por plano
-- Relatórios
-- Gráficos utilizando Matplotlib
-- Data automática de matrícula
+📌 Funcionalidades
+✅ Cadastro de alunos
+✅ Listagem de alunos
+✅ Busca por nome
+✅ Exclusão de alunos
+✅ Edição de plano
+✅ Contagem de alunos cadastrados
+✅ Relatórios de alunos ativos e inativos
+✅ Estatísticas por sexo
+✅ Estatísticas por plano
+✅ Registro automático da data de matrícula
+✅ Visualização de dados com gráficos (Matplotlib)
+✅ Sistema de atualização do banco de dados (migração)
 
-## Tecnologias
+🛠️ Tecnologias utilizadas
+Python
+SQLite
+SQL
+Matplotlib
+Git
+GitHub
 
-- Python
-- SQLite
-- Matplotlib
+📁 Estrutura do projeto
+gym-management-system/
+│
+├── lib/
+├── main.py
+├── README.md
+├── requirements.txt
+└── .gitignore
 
-## Como executar
-
-```bash
+🚀 Como executar
+Clone este repositório:
+git clone https://github.com/mateuscengeroff-prog/gym-management-system.git
+Instale as dependências:
 pip install -r requirements.txt
+Execute o programa:
 python main.py
-```
+
+🎯 Objetivo
+
+Este projeto foi desenvolvido para consolidar conhecimentos em:
+
+Programação em Python
+Banco de dados SQLite
+Linguagem SQL
+Operações CRUD
+Modularização de código
+Visualização de dados
+Controle de versão com Git e GitHub
+
+👨‍💻 Autor
+
+Desenvolvido por Mateus Engeroff.
