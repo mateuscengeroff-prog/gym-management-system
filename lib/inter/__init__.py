@@ -1,60 +1,87 @@
+"""Funcoes de interface de terminal (leitura de dados e formatacao)."""
+
+
+def leiaInt(msg):
+    """Le um numero inteiro, repetindo a pergunta ate a entrada ser valida.
+
+    Apenas ValueError e tratado: EOFError e KeyboardInterrupt sobem para o
+    programa principal, que encerra de forma limpa (antes, um `except:`
+    generico engolia o EOF e o programa entrava em loop infinito).
+    """
+    while True:
+        try:
+            n = int(input(msg))
+        except ValueError:
+            print('Digite um valor valido')
+        else:
+            return n
+
+
 def leiaStatus(msg):
     while True:
-        status = int(input(msg))
+        status = leiaInt(msg)
 
         if status == 1:
-            status = 'ativo'
-            return status
+            return 'ativo'
         elif status == 2:
-            status = 'Inativo'
-            return status
+            return 'inativo'
         else:
             print('Digite um valor valido')
 
 
 def leiaPlano(msg):
     while True:
-        plano = int(input(msg))
+        plano = leiaInt(msg)
 
         if plano == 1:
-            plano = 'Musculacao'
-            return plano
+            return 'musculacao'
         elif plano == 2:
-            plano = 'Pilates'
-            return plano
+            return 'pilates'
         else:
             print('Digite um valor valido')
+
 
 def leiaSexo(msg):
     while True:
-        sexo = str(input(msg)).lower()
+        sexo = str(input(msg)).strip().lower()
 
         if sexo == 'm':
-            sexo = 'Masculino'
-            return sexo
+            return 'masculino'
         elif sexo == 'f':
-            sexo = 'Feminino'
-            return sexo
+            return 'feminino'
         else:
-            print('Digite um valor válido')
-
-
-def leiaInt(msg):
-    while True:
-        try:
-            n = int(input(msg))
-        except:
             print('Digite um valor valido')
-        else:
-            return n
-        
-def linha(tam = 42):
+
+
+def leiaNome(msg):
+    """Le um nome nao vazio."""
+    while True:
+        nome = str(input(msg)).strip()
+
+        if nome:
+            return nome
+        print('O nome nao pode ficar em branco')
+
+
+def leiaIdade(msg, minimo=1, maximo=120):
+    """Le uma idade inteira dentro de uma faixa plausivel."""
+    while True:
+        idade = leiaInt(msg)
+
+        if minimo <= idade <= maximo:
+            return idade
+        print(f'Digite uma idade entre {minimo} e {maximo}')
+
+
+def linha(tam=42):
     return '-' * tam
+
 
 def cabecalho(txt):
     print(linha())
     print(txt.center(42))
     print(linha())
+
 
 def menu(lista):
     c = 1
@@ -62,6 +89,5 @@ def menu(lista):
         print(f'{c} - {item}')
         c += 1
     print(linha())
-    opc = leiaInt('Escolha uma opção ')
+    opc = leiaInt('Escolha uma opcao ')
     return opc
-    

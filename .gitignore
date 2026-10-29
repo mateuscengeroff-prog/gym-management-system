@@ -1,0 +1,28 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local SQLite databases (may contain real student data - never commit)
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Legacy local data folder
+dados/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
