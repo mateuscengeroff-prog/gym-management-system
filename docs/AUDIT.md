@@ -35,6 +35,7 @@ Each bug was reproduced against the original code before being fixed, and each f
 | 9 | `DeprecationWarning` on Python 3.12+ when registering | Relied on `sqlite3`'s default date adapter, deprecated in 3.12 | Date stored explicitly as ISO text (`date.isoformat()`) |
 | 10 | Running from another folder created a new, empty `academia.db` in that folder | Relative database path | Path anchored to the project root; overridable with `GYM_DB_PATH` |
 | 11 | No way to leave the program except `Ctrl+C` | No exit option | Added *Sair* (option 5) |
+| 12 | After `python scripts/seed_demo_db.py` with `GYM_DB_PATH` set, every report said *sem dados* | The seed script always wrote to `academia.db` in the project root, while the app reads `GYM_DB_PATH` first | The seed's default path now follows the same rule as the app (found in a second review, 29 Oct 2026) |
 
 Small additions made while fixing the above: blank names are rejected, ages must be between 1 and 120, each chart opens in a fresh figure (they could overlap before), and search shows every member with the matching name instead of only the first.
 
@@ -50,7 +51,7 @@ Environment: Linux, Python 3.13.17, Matplotlib 3.11.2 (pre-installed), `MPLBACKE
 
 | Command | Result |
 |---|---|
-| `python -m unittest -v` | 50 tests, all passed (about 0.7 s) |
+| `python -m unittest -v` | 50 tests, all passed (about 0.7 s). Second review on 29 Oct 2026: 51 tests, all passed, including the regression test for bug 12, which fails without the fix |
 | Same data-layer and input tests against the **original** code | 28 + 10 run: 34 failed or errored; the EOF test hung until killed by a timeout. Many of these failures come from the original code not being testable (no configurable path, no return values); the regression tests named after bugs 2 to 6 fail for the bug itself. |
 | `printf '' \| python main.py` | Exit code 0, one prompt, then "Encerrando o sistema." |
 | Manual session with invalid name, age, sex, plan and status inputs | Each invalid value rejected with a message; record saved correctly |

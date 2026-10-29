@@ -49,3 +49,10 @@ class SeedDemoDatabaseTests(TempDatabaseTestCase):
         self.assertIn('4 fictitious students', out.getvalue())
         self.assertIn('already exists', err.getvalue())
         self.assertTrue(os.path.exists(self.db_path))
+
+    def test_default_path_follows_gym_db_path(self):
+        # Regression: the seed used to ignore GYM_DB_PATH while main.py honored it,
+        # so reports ran against an empty database after seeding.
+        with redirect_stdout(io.StringIO()):
+            self.assertEqual(seed.main(['--count', '3']), 0)
+        self.assertEqual(self.query('SELECT COUNT(*) FROM alunos'), [(3,)])

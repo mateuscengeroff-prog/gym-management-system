@@ -62,7 +62,7 @@ pip install -r requirements.txt
 python scripts/seed_demo_db.py
 ```
 
-This creates `academia.db` with 20 invented members (names such as "ana demo" or "bruno exemplo"), so every report has something to show. The script refuses to overwrite an existing database unless you pass `--force`. Other options: `--count N`, `--path FILE`, `--seed N`.
+This creates the database the app will use (`GYM_DB_PATH` if set, otherwise `academia.db`) with 20 invented members (names such as "ana demo" or "bruno exemplo"), so every report has something to show. The script refuses to overwrite an existing database unless you pass `--force`. Other options: `--count N`, `--path FILE`, `--seed N`.
 
 ### Run
 
@@ -165,7 +165,7 @@ CREATE TABLE alunos (
 python -m unittest -v
 ```
 
-The suite has 50 tests covering CRUD operations, every report (including on an empty database), schema creation and migration of an older database, invalid-input handling, the demo-data script, a complete scripted CLI session, and real runs of `main.py` as a separate process. Each test uses its own temporary database, so your `academia.db` is never touched. Charts are rendered with Matplotlib's non-interactive backend, so no windows open.
+The suite has 51 tests covering CRUD operations, every report (including on an empty database), schema creation and migration of an older database, invalid-input handling, the demo-data script, a complete scripted CLI session, and real runs of `main.py` as a separate process. Each test uses its own temporary database, so your `academia.db` is never touched. Charts are rendered with Matplotlib's non-interactive backend, so no windows open.
 
 GitHub Actions runs the same suite on Python 3.10 to 3.13 for every push and pull request.
 

@@ -85,8 +85,10 @@ def criarBancoDemo(caminho, quantidade=20, force=False, seed=42):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description='Create a SQLite database with fictitious demo students.')
-    parser.add_argument('--path', default=os.path.join(PROJECT_ROOT, 'academia.db'),
-                        help='database file to create (default: academia.db in the project root)')
+    # Same default as the app (GYM_DB_PATH, else academia.db in the project root),
+    # so "seed, then run main.py" always uses the same file.
+    parser.add_argument('--path', default=os.environ.get('GYM_DB_PATH', os.path.join(PROJECT_ROOT, 'academia.db')),
+                        help='database file to create (default: $GYM_DB_PATH, else academia.db in the project root)')
     parser.add_argument('--count', type=int, default=20, help='number of students (default: 20)')
     parser.add_argument('--seed', type=int, default=42, help='random seed (default: 42)')
     parser.add_argument('--force', action='store_true', help='replace the file if it already exists')
