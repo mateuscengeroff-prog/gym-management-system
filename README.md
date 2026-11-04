@@ -1,4 +1,13 @@
-# Gym Management System
+<picture>
+  <source media="(max-width: 600px) and (prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="docs/img/banner-mobile-dark-static.svg">
+  <source media="(max-width: 600px) and (prefers-reduced-motion: reduce)" srcset="docs/img/banner-mobile-light-static.svg">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="docs/img/banner-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="docs/img/banner-mobile-light.svg">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="docs/img/banner-dark-static.svg">
+  <source media="(prefers-reduced-motion: reduce)" srcset="docs/img/banner-light-static.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/banner-dark.svg">
+  <img src="docs/img/banner-light.svg" width="860" alt="Gym Management System. Command-line member management. Register, search and report on gym members with Python, SQLite and Matplotlib. language: Python 3.10+. database: SQLite, local file. tests: 51, CI on 3.10–3.13. Windows smoke test pending.">
+</picture>
 
 A command-line application for managing gym members, written in Python with an SQLite database and Matplotlib charts.
 
@@ -122,6 +131,15 @@ Two of the charts, generated with Matplotlib from the demo database (combined in
 
 ![Bar chart of members per plan and pie chart of active vs. inactive members](docs/images/reports-demo.png)
 
+## How it works
+
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="docs/img/flow-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="docs/img/flow-mobile-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/flow-dark.svg">
+  <img src="docs/img/flow-light.svg" width="860" alt="How the app works. 1. Pick an option: A numbered terminal menu. The interface text is in Portuguese. 2. Validate input: Non-numeric, out-of-range and blank answers are asked again. 3. Store safely: Parameterized SQL in a local SQLite file; older schemas upgrade on startup. 4. Report: Totals, averages and Matplotlib charts, even for an empty database.">
+</picture>
+
 ## Architecture
 
 ```text
@@ -135,6 +153,7 @@ gym-management-system/
 ├── tests/                      # automated tests (one temporary database per test)
 ├── docs/
 │   ├── AUDIT.md                # engineering notes: audit findings and fixes
+│   ├── img/                    # README illustrations (diagrams drawn in code)
 │   └── README.pt-BR.md         # original Portuguese README
 └── requirements.txt
 ```
@@ -178,6 +197,15 @@ These are deliberate scope limits of a learning project, documented rather than 
 - Only two plans (weight training and Pilates) and two values for sex, as in the original design.
 - *Editar aluno* (edit member) is located in the reports menu.
 
+## Where it stands
+
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="docs/img/board-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="docs/img/board-mobile-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/board-dark.svg">
+  <img src="docs/img/board-light.svg" width="860" alt="Where it stands. On main today: Create, list, search, edit and delete members, with input validation; Reports for active and inactive members, members per plan, ages and gender, with Matplotlib charts; Schema update routine that adds a column without dropping existing data; A script that fills a demo database with fictitious members; 51 automated tests, passing in CI on Python 3.10 to 3.13. Not on main yet, or still to validate: Manual smoke test on Windows.">
+</picture>
+
 ## Project history
 
 - **July 2026:** first version, built as a study project.
@@ -186,3 +214,5 @@ These are deliberate scope limits of a learning project, documented rather than 
 ## Author
 
 **Mateus Engeroff**: [GitHub @mateuscengeroff-prog](https://github.com/mateuscengeroff-prog)
+
+<sub>The illustrations in docs/img are SVGs drawn in code, in the same visual identity as the author's GitHub profile. They are diagrams, not screenshots; the chart image above is real Matplotlib output. Regenerate them with `python scripts/repo_art.py gym <folder>` in the [profile repository](https://github.com/mateuscengeroff-prog/mateuscengeroff-prog).</sub>
